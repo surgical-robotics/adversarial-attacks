@@ -191,6 +191,40 @@
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
+                      <!-- ArXiv Link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+
+                      <!-- Supplementary Link -->
+                      <span class="link-block">
+                        <a href="#" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Supplementary</span>
+                      </a>
+                    </span>
+
+                      <!-- Code Link -->
+                      <span class="link-block">
+                        <a href="#" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fab fa-github"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+                    </span>
+
+                      <!-- Project Page Link -->
                       <span class="link-block">
                         <a href="https://sites.google.com/view/adversary-surgery" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
@@ -215,7 +249,7 @@
     <div class="hero-body">
       <img src="static/images/Abstract_Image.png" alt="Adversarial attacks on surgical robotic tasks showing successful vs failed grasping" loading="lazy" style="width: 100%; height: auto;"/>
       <h2 class="subtitle has-text-centered">
-        Adversarial attacks can significantly degrade the performance of learned policies in surgical robotic tasks, demonstrating the vulnerability of autonomous surgical systems.
+        Illustration of an adversarial attack on a suturing subtask. Left: expected execution with intended needle-tissue interaction. Right: steering attack that suddenly retracts the gripper, causing irreversible tissue deformation and potential scarring.
       </h2>
     </div>
   </div>
@@ -240,40 +274,35 @@
 <!-- End paper abstract -->
 
 
-<!-- Methodology Section -->
+<!-- Research Questions Section -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Research Question</h2>
+      <h2 class="title is-3">Research Questions</h2>
       <div class="content has-text-justified">
-        <p class="is-size-5" style="text-align: center; font-style: italic; padding: 20px;">
+        <p class="is-size-5" style="text-align: center; font-style: italic; padding: 20px 40px;">
           Are learned policies vulnerable to adversarial attacks in surgical manipulation tasks?
+        </p>
+        <p class="is-size-5" style="text-align: center; font-style: italic; padding: 20px 40px;">
+          Can imperceptible perturbations in the camera images induce sudden and malicious robot motions that could harm patients?
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Experimental Setup -->
+<!-- Adversarial Attacks on Surgical Robotics -->
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container is-max-desktop">
-      <h2 class="title is-3">Experimental Setup</h2>
+      <h2 class="title is-3">Adversarial Attacks on Surgical Robotics</h2>
       <div class="columns is-centered">
         <div class="column is-full">
           <img src="static/images/Adversarial_Attack_Pipeline_v10.png" alt="Adversarial Attack Pipeline" loading="lazy" style="width: 100%; height: auto;"/>
-          <p class="has-text-centered" style="margin-top: 15px;">
-            <strong>Da Vinci Research Kit Setup:</strong> We evaluate two surgical subtasks - debridement (removing infected tissue fragments) and suturing (needle manipulation). The adversary injects perturbations into the endoscopic video stream to manipulate the learned policy.
+          <p class="has-text-justified" style="margin-top: 15px;">
+            During an ongoing surgery at timestep <em>t</em>, the surgeon oversees the procedure via the live endoscopic video stream. An adversary injects either an imperceptible perturbation δ<sub>t</sub> or a visually subtle photometric perturbation Δ<sub>t</sub> into the clean endoscopic image <em>i<sub>t</sub></em>. The visually disguised input tricks the robot into executing an anomalous action <em>a′<sub>t</sub></em>, inflicting irreversible harm on the patient before the surgeon detects the anomaly. These perturbations are generated by the three attack methods discussed in Sec. 4 under different levels of access to the training dataset 𝒟, policy weights θ, and current observation <em>o<sub>t</sub></em>.
           </p>
         </div>
-      </div>
-      <div class="content has-text-justified" style="margin-top: 30px;">
-        <h3 class="title is-4">Tested Policy Architectures</h3>
-        <ul>
-          <li><strong>ACT</strong> (Action Chunking Transformer): Vision-conditioned policy with 4x execution speed</li>
-          <li><strong>Diffusion Policy</strong>: Visuomotor policy learning via action diffusion with 8x execution speed</li>
-          <li><strong>π₀</strong> (Pi-Zero): Vision-Language-Action flow model with 4x execution speed</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -289,14 +318,14 @@
           <h3 class="title is-4">1. Disruptive Attack</h3>
           <p>Interrupts policy execution by maximizing deviation from the clean action. The attack aims to cause task failure by creating arbitrary malicious robot motions.</p>
           <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
-            <em>ℒ<sub>disruptive</sub> = -||a' - a||₂²</em>
+            ℒ<sub>disruptive</sub> = -||a' - a||₂²
           </p>
         </div>
         <div>
           <h3 class="title is-4">2. Steering Attack</h3>
           <p>Steers policy actions toward attacker-specified directions. This attack can amplify small actions into large dangerous motions, such as excessive needle lifting during suturing or forcing the gripper in unwanted directions.</p>
           <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
-            <em>ℒ<sub>steering</sub> = ||a' - a<sup>target</sup>||₂²</em>
+            ℒ<sub>steering</sub> = ||a' - a<sup>target</sup>||₂²
           </p>
         </div>
       </div>
@@ -311,18 +340,13 @@
       <h2 class="title is-3">Attack Generation Methods</h2>
       <div class="content has-text-justified">
         <h3 class="title is-4">1. Offline Dataset Attack (UAP)</h3>
-        <p>Uses the training dataset and policy weights to compute a <strong>fixed universal perturbation</strong> that is reused during policy execution. This represents the strongest threat model with full access to training data and model parameters.</p>
+        <p>Uses the training dataset and policy weights to compute a fixed universal perturbation that is reused during policy execution.</p>
 
         <h3 class="title is-4">2. Online Inference Attack (PGD)</h3>
-        <p>Computes perturbations during robot operation using <strong>Progressive Gradient Descent</strong>. At each timestep, the adversary observes the current image and iteratively optimizes an observation-specific perturbation. This is slower but more adaptive than UAP.</p>
+        <p>Computes perturbations during robot operation using Progressive Gradient Descent. At each timestep, the adversary observes the current image and iteratively optimizes an observation-specific perturbation.</p>
 
         <h3 class="title is-4">3. Temporal Photometric Attack (TPA)</h3>
-        <p><strong>Novel contribution:</strong> A new class of photometric adversarial attacks that mimic natural visual changes (brightness, contrast, gamma adjustments) while steering policy outputs. TPA uses a trained generator to predict perturbations in a single forward pass, balancing attack effectiveness with visual plausibility.</p>
-        <ul>
-          <li>Replaces hard imperceptibility constraints with photometric regularization</li>
-          <li>Generates visually plausible perturbations that resemble lighting variations</li>
-          <li>Achieves better steering performance than traditional methods</li>
-        </ul>
+        <p>A new class of photometric adversarial attacks that mimic natural visual changes (brightness, contrast, gamma adjustments) while steering policy outputs. TPA uses a trained generator to predict perturbations in a single forward pass, balancing attack effectiveness with visual plausibility.</p>
       </div>
     </div>
   </div>
