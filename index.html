@@ -264,7 +264,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Learning-based policies are being considered to augment the dexterity of human surgeons in robot-assisted surgery. Can the end-to-end mapping from visual observations to robot actions be vulnerable to adversarial attacks, potentially leading to patient injury? In this paper, we present the first study of adversarial threats to learning-based policies in surgical robotics. We investigate two threat modes: (a) disruptive attacks, where imperceptible visual perturbations interrupt policy execution, and (b) steering attacks, where such perturbations steer policy actions toward attacker-specified directions. We formulate three adversarial attack methods, each with increasing access to policy information, and evaluate their impact on two surgical subtasks: debridement and suturing. Our evaluation covers three end-to-end policy architectures: ACT, Diffusion Policy, and π0. In addition, we introduce a new class of photometric adversarial attacks that mimic natural visual changes, such as lighting variations, to generate effective yet visually plausible perturbations. Results from 560 physical experiments using phantoms for debridement and suturing suggest that state-of-the-art policies can be significantly disrupted, resulting in an average 61% reduction in surgical subtask success rates.
+            Learning-based policies are being considered to augment the dexterity of human surgeons in robot-assisted surgery. Can the end-to-end mapping from visual observations to robot actions be vulnerable to adversarial attacks, potentially leading to patient injury? In this paper, we present the first study of adversarial threats to learning-based policies in surgical robotics. We investigate two threat modes: (a) disruptive attacks, where imperceptible visual perturbations interrupt policy execution, and (b) steering attacks, where such perturbations steer policy actions toward attacker-specified directions. We formulate three adversarial attack methods, each with increasing access to policy information, and evaluate their impact on two surgical subtasks: debridement and suturing. Our evaluation covers three end-to-end policy architectures: ACT, Diffusion Policy, and π₀. In addition, we introduce a new class of photometric adversarial attacks that mimic natural visual changes, such as lighting variations, to generate effective yet visually plausible perturbations. Results from 560 physical experiments using phantoms for debridement and suturing suggest that state-of-the-art policies can be significantly disrupted, resulting in an average 61% reduction in surgical subtask success rates.
           </p>
         </div>
       </div>
@@ -323,7 +323,7 @@
         </div>
         <div>
           <h3 class="title is-4">2. Steering Attack</h3>
-          <p>Steers policy actions toward attacker-specified directions. This attack can amplify small actions into large dangerous motions, such as excessive needle lifting during suturing or forcing the gripper in unwanted directions.</p>
+          <p>Steers policy actions toward attacker-specified directions. This attack can amplify small actions into large dangerous actions through closed-loop execution.</p>
           <p style="text-align: center; font-size: 1.2em; margin: 20px 0;">
             ℒ<sub>steering</sub> = ||a' - a<sup>target</sup>||₂²
           </p>
@@ -439,7 +439,7 @@
           </video>
           <p class="has-text-centered" style="margin-top: 10px;"><strong>UAP (Offline Dataset Attack)</strong></p>
           <p class="has-text-centered" style="margin-top: 5px; font-size: 0.9em;">PSM Joint 2 (translational joint) (+)</p>
-          <p class="has-text-centered" style="margin-top: 2px; font-size: 0.9em; color: #666;">Ineffective</p>
+          <p class="has-text-centered" style="margin-top: 2px; font-size: 0.9em; color: #666;">"Ineffective"</p>
         </div>
         <div class="column is-half">
           <video controls loop muted autoplay playsinline style="width: 100%; border-radius: 10px;">
@@ -447,7 +447,7 @@
           </video>
           <p class="has-text-centered" style="margin-top: 10px;"><strong>PGD (Online Inference Attack)</strong></p>
           <p class="has-text-centered" style="margin-top: 5px; font-size: 0.9em;">PSM Joint 2 (translational joint) (+)</p>
-          <p class="has-text-centered" style="margin-top: 2px; font-size: 0.9em; color: #666;">Slow and ineffective</p>
+          <p class="has-text-centered" style="margin-top: 2px; font-size: 0.9em; color: #666;">"Slow and ineffective"</p>
         </div>
       </div>
 
