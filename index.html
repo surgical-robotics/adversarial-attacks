@@ -495,34 +495,6 @@
   </div>
 </section>
 
-<!-- Implications -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3">Safety Implications</h2>
-      <div class="content has-text-justified">
-        <p class="notification is-warning">
-          <strong>Critical Finding:</strong> State-of-the-art learned policies for surgical robotics are highly vulnerable to adversarial attacks. With an average 61% success rate reduction, these attacks pose serious risks to patient safety in robot-assisted surgery scenarios.
-        </p>
-        <ul>
-          <li><strong>Real-world threat:</strong> Attacks can be generated within milliseconds, making them feasible during live surgical procedures</li>
-          <li><strong>Imperceptible perturbations:</strong> Visual changes can be subtle enough to evade human detection</li>
-          <li><strong>Amplification through closed-loop:</strong> Small steering biases accumulate over sequential actions, turning minor deviations into dangerous motions</li>
-          <li><strong>Multiple attack vectors:</strong> Adversaries with different levels of access (dataset, model weights, online observations) can all mount effective attacks</li>
-        </ul>
-
-        <h3 class="title is-4">Future Directions</h3>
-        <ul>
-          <li>Defense mechanisms for detecting and mitigating adversarial perturbations in surgical settings</li>
-          <li>Robustness evaluation should be a standard requirement for deploying learning-based policies in safety-critical surgical applications</li>
-          <li>Investigation of multi-modal attacks (combining visual, force, and kinematic perturbations)</li>
-          <li>Development of certified defense methods for surgical autonomy systems</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 
 
